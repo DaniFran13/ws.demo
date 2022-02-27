@@ -1,0 +1,47 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+	targetNamespace="http://spring.io/guides/gs-producing-web-service"
+	elementFormDefault="qualified">
+
+	<xs:element name="visitRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idTruck" type="xs:string" />
+				<xs:element name="startDate" type="xs:dateTime" />
+				<xs:element name="endDate" type="xs:dateTime" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="visitResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="visit" type="tns:visit" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="visit">
+			<xs:sequence>
+				<xs:element name="driver" type="tns:driver" />
+				<xs:element name="cargo" type="tns:cargo" />
+			</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="driver">
+		<xs:sequence>
+			<xs:element name="mane" type="xs:string" />
+			<xs:element name="idDriver" type="xs:string" />
+			<xs:element name="startDate" type="xs:dateTime" />
+			<xs:element name="endDate" type="xs:dateTime" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cargo">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string" />
+			<xs:element name="weight" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
