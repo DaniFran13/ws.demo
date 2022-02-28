@@ -3,7 +3,7 @@
 	targetNamespace="http://spring.io/guides/gs-producing-web-service"
 	elementFormDefault="qualified">
 
-	<xs:element name="visitRequest">
+	<xs:element name="FindAllVisitRequest">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="idTruck" type="xs:string" />
@@ -12,16 +12,38 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
-	<xs:element name="visitResponse">
+	
+	<xs:element name="FindVisitTruckRequest">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="visit" type="tns:visit" />
+				<xs:element name="idTruck" type="xs:string" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 
-	<xs:complexType name="visit">
+	<xs:element name="FindAllVisitResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="visitList" type="tns:visitList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="FindVisitTruckResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="visitList" type="tns:visitList" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="visitList">
+			<xs:sequence>
+				<xs:element name="visitDetails" type="tns:visitDetails" maxOccurs="unbounded"/>
+			</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="visitDetails">
 			<xs:sequence>
 				<xs:element name="driver" type="tns:driver" />
 				<xs:element name="cargo" type="tns:cargo" />

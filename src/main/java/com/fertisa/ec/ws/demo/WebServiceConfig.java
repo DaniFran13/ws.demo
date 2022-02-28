@@ -1,5 +1,6 @@
 package com.fertisa.ec.ws.demo;
 
+import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,15 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+	
+	@Bean
+	public ServletRegistrationBean h2servletRegistration() {
+		ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
+		registrationBean.addUrlMappings("/console/*");
+		return registrationBean;
+	}
+
+	
 	@Bean
 	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
