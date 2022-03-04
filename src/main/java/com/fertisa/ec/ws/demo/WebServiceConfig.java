@@ -37,7 +37,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema visitSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("VisitPort");
-		wsdl11Definition.setLocationUri("/visit");
+		wsdl11Definition.setLocationUri("/ws/visit");
 		wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
 		wsdl11Definition.setSchema(visitSchema);
 		return wsdl11Definition;
