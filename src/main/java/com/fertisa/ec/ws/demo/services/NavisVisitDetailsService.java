@@ -20,12 +20,13 @@ public class NavisVisitDetailsService implements INavisVisitDetailsService {
 	}
 
 	public List<NavisVisitDetails> getNavisVisitDetailsAll() {
-		return navisVisitDetailsRepository. findAll();
+		return navisVisitDetailsRepository.findAll();
 	}
 	
 	public List<NavisVisitDetails> getNavisVisitByIdTruck(String idTruck) {
 		return navisVisitDetailsRepository.findByIdTruck(idTruck);
 	}
+	
 }
 
 

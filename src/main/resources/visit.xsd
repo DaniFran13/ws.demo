@@ -24,24 +24,25 @@
 	<xs:element name="FindAllVisitResponse">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="visitList" type="tns:visitList"/>
+				<xs:element name="visitDetails" type="tns:visitDetails" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:element name="FindVisitTruckResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="visitList" type="tns:visitList" />
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+<!-- 	<xs:element name="FindVisitTruckResponse"> -->
+<!-- 		<xs:complexType> -->
+<!-- 			<xs:sequence> -->
+<!-- 				<xs:element name="visitList" type="tns:visitList" /> -->
+<!-- 			</xs:sequence> -->
+			
+<!-- 		</xs:complexType> -->
+<!-- 	</xs:element> -->
 
-	<xs:complexType name="visitList">
+	<!-- xs:complexType name="visitList">
 			<xs:sequence>
 				<xs:element name="visitDetails" type="tns:visitDetails" maxOccurs="unbounded"/>
 			</xs:sequence>
-	</xs:complexType>
+	</xs:complexType-->
 	
 	<xs:complexType name="visitDetails">
 			<xs:sequence>
@@ -52,7 +53,7 @@
 
 	<xs:complexType name="driver">
 		<xs:sequence>
-			<xs:element name="mane" type="xs:string" />
+			<xs:element name="driverName" type="xs:string" />
 			<xs:element name="idDriver" type="xs:string" />
 			<xs:element name="startDate" type="xs:dateTime" />
 			<xs:element name="endDate" type="xs:dateTime" />
@@ -62,7 +63,7 @@
 	<xs:complexType name="cargo">
 		<xs:sequence>
 			<xs:element name="type" type="xs:string" />
-			<xs:element name="weight" type="xs:string" />
+			<xs:element name="weight" type="xs:float" />
 		</xs:sequence>
 	</xs:complexType>
 
